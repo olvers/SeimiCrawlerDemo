@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.springboot.dao.productDao">
+
+    <resultMap id="productMap" type="com.springboot.model.product">
+        <result property="productName" column="productName" />
+        <result property="productAmount" column="productAmount" />
+        <result property="pct_funded" column="pct_funded" />
+        <result property="countributions" column="countributions" />
+        <result property="days_left" column="days_left" />
+        <result property="categoryName" column="categoryName" />
+    </resultMap>
+
+
+    <insert id="insertProduct" parameterType="java.lang.String">
+        INSERT INTO `indiegogoProduct`(productName,productAmount,pct_funded,countributions,days_left,categoryName)
+        VALUES (#{product.productName},#{product.productAmount},#{product.pct_funded},#{product.countributions},#{product.days_left},#{product.categoryName})
+    </insert>
+</mapper>
